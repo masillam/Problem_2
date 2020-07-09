@@ -1,0 +1,21 @@
+service: lambdanew1
+
+plugins:
+  - serverless-plugin-existing-s3
+
+provider:
+  name: aws
+  runtime: python2.7
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - s3:
+          bucket: s3buckettests3proj
+          event : s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .pdf
+          existing: true
