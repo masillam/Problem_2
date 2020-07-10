@@ -1,5 +1,4 @@
 import boto3
-import boto3
 import re
 from datetime import datetime
 
